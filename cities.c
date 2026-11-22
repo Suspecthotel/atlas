@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "data.h"
+#include <time.h>
 
 
 /*
@@ -86,6 +87,7 @@ int main(int argc, char* argv[]){
 char maxlength = 40;
 char* userinput = malloc( maxlength *sizeof(char));
 char score=0;
+  srandom(time(NULL));
 char activeletter= (random()%26)+'a';
 
 while(1){
