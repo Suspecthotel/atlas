@@ -70,7 +70,7 @@ char iscity=0;
 
 for( int i=0; i< sizeof(cities) / sizeof(cities[0]); i++ ){
 
-char n = checkifsamestring( input, cities[i], length, sizeof(cities) / sizeof(cities[0]) );
+char n = checkifsamestring( input, cities[i], length, namelength(cities[i]) );
 if(1== n){return 1;}
 if(n==-1){printf("one of the strings doesnt end within the available length. Set the length of malloc in the int main() higher");}
 }
@@ -84,7 +84,6 @@ int main(int argc, char* argv[]){
 char maxlength = 40;
 char* userinput = malloc( maxlength *sizeof(char));
 char score=0;
-char* city;
 char activeletter= (rand()%26)+'a';
 
 while(1){
@@ -108,5 +107,5 @@ else{ //else block to if the first letter equals last letter
 printf("\nletter is not the same. Start with %c\n\n", activeletter);
 }
 } // end of while loop
-
+free(userinput);
 } //end of main
