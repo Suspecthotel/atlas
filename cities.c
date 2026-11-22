@@ -91,6 +91,7 @@ char score=0;
 char activeletter= (random()%26)+'a';
 
 while(1){
+  printf("_________________________________________________________________________________________________");
 
 printf("\n\nyou have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
 
