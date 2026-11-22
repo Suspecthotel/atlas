@@ -70,7 +70,7 @@ char iscity=0;
 
 for( int i=0; i< sizeof(cities) / sizeof(cities[0]); i++ ){
 
-char n = checkifsamestring( input, cities[i], length, namelength(cities[i]) );
+char n = checkifsamestring( input, cities[i], length, namelength(cities[i], citynamelength) );
 if(1== n){return 1;}
 if(n==-1){printf("one of the strings doesnt end within the available length. Set the length of malloc in the int main() higher");}
 }
