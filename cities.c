@@ -15,18 +15,29 @@ CHANGABLE:
 MISSING:
 findlastchar cannot deal with strings length 0
 implement the database
+my getridofemptyspaces function modifies the database 
 */
 
-char findlastchar(char* input, char maxlength){
+char citynamelength = 50; //maximum length of a predefined city name
+
+char namelength(char* input, char maxlength){
+  char len=0;
+  for( int i=0; i< maxlength; i++){
+    if( *(input+i)=='\0' ){return len;}
+    len++;
+  }
+}
+
+char findlastchar(char* input, char maxlength){ 
 if(*input=='\0'){
-printf("The String you entered is empty. Not implemented yet. Program is broken now\n");
+printf("The String you entered is empty. Not implemented yet. Program is broken now\n"); return '\n';
 }
 for(int i=0; i<maxlength; i++){
 if(*(input+i)== '\0'){
 return *(input+(i-1));
 }
 }//for loop
-printf("your city name is too long OR my code is broken\n");
+printf("your city name is too long OR my code is broken\n"); return '\n';
 }
 
 
@@ -43,10 +54,8 @@ return posinres;
 
 
 char checkifsamestring(char* one, char* two, char length, char lengthsecond){ //if not, return 0. Else return 1.
-if(lengthsecond != length){
 length = getridofemptyspaces(one, length); lengthsecond = getridofemptyspaces(two, lengthsecond);
 if(lengthsecond != length){return 0;}
-}
 for(int i=0; i<length; i++){
 if(*(one+i) == '\0' && *(two+i)=='\0' ){return 1;}
 else if( *(one+i) != *(two+i) ){return 0;}
@@ -58,7 +67,7 @@ return -1; //both strings dont end within length even though they should
 char checkifcity(char* input, char length){ // if not city, then 0. Else 1
 char iscity=0;
 
-for( int i=0; i<sizeof(cities); i++ ){
+for( int i=0; i< namelength(cities[i], citynamelength); i++ ){
 
 char n = checkifsamestring( input, cities[i], length, sizeof(cities) / sizeof(cities[0]) );
 if(1== n){return 1;}
@@ -81,7 +90,7 @@ while(1){
 printf("you have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
 userinput = fgets(userinput, maxlength, stdin);
 
-if(findlastchar(userinput,maxlength)==activeletter){ //if the letter is correct
+if( *(userinput) ==activeletter){ //if the letter is correct
 
 if(checkifcity(userinput, maxlength)){ //if it is a city
 printf("\nvalid city.\n");
