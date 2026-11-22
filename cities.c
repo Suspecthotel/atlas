@@ -92,7 +92,7 @@ char activeletter= (random()%26)+'a';
 
 while(1){
 
-printf("you have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
+printf("\n\nyou have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
 
 /*if (fgets(userinput, maxlength, stdin) == NULL) {
     printf("fgets was NULL\n");
