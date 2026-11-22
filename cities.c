@@ -26,6 +26,7 @@ char namelength(char* input, char maxlength){
     if( *(input+i)=='\0' ){return len;}
     len++;
   }
+  return len;
 }
 
 char findlastchar(char* input, char maxlength){ 
@@ -67,7 +68,7 @@ return -1; //both strings dont end within length even though they should
 char checkifcity(char* input, char length){ // if not city, then 0. Else 1
 char iscity=0;
 
-for( int i=0; i< namelength(cities[i], citynamelength); i++ ){
+for( int i=0; i< sizeof(cities) / sizeof(cities[0]); i++ ){
 
 char n = checkifsamestring( input, cities[i], length, sizeof(cities) / sizeof(cities[0]) );
 if(1== n){return 1;}
