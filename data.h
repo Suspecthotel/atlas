@@ -25,9 +25,9 @@ char* cities[] = {
 "xy",
 "yz",
 "za",
-"Cityone",
-"Citytwo",
-"Citythree",
+"cityone",
+"citytwo",
+"citythree",
 "",
 "\n",
 "%i"
