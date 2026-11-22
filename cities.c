@@ -106,7 +106,7 @@ userinput = fgets(userinput, maxlength, stdin);
 if( *(userinput) ==activeletter){ //if the letter is correct
 
 if(checkifcity(userinput, maxlength)){ //if it is a city
-printf("\nvalid city.\n");
+printf("\nGood city.\n");
 score = score+1;
 activeletter = findlastchar(userinput, maxlength);
 }//end of if it is a city
@@ -117,7 +117,7 @@ printf("\n invalid city\nEnter another\n");
 
 }// end of if the letter is correct
 else{ //else block to if the first letter equals last letter
-printf("\nletter is not the same. Start with %c\n\n", activeletter);
+printf("\nletter is not the same. Start with %c\n\n", activeletter); 
 }
 } // end of while loop
 free(userinput);
