@@ -1,2 +1,2 @@
 cities: cities.c data.h
-	gcc -Wall -Wextra -o cities cities.c
+	gcc -Wall -Wextra cities.c
