@@ -15,7 +15,7 @@ CHANGABLE:
 MISSING:
 findlastchar cannot deal with strings length 0
 implement the database
-my getridofemptyspaces function modifies the database 
+my getridofemptyspaces function modifies the database
 */
 
 char citynamelength = 50; //maximum length of a predefined city name
@@ -29,7 +29,7 @@ char namelength(char* input, char maxlength){
   return len;
 }
 
-char findlastchar(char* input, char maxlength){ 
+char findlastchar(char* input, char maxlength){
 if(*input=='\0'){
 printf("The String you entered is empty. Not implemented yet. Program is broken now\n"); return '\n';
 }
@@ -45,7 +45,7 @@ printf("your city name is too long OR my code is broken\n"); return '\n';
 char getridofemptyspaces(char* input , char maxlength){ // returns the length of my word +1 (being the \0 char)
 char posinres=0;
 for(int i=0;i<maxlength;i++){
-if( *(input+i)!=' ' ){
+if( *(input+i)!=' ' &&  *(input+i)!='\n' ){
 *(input + posinres)= *(input+i); posinres++;
 if( *(input+i) == '\0' ){ break; }
 }// if input isnt empty
@@ -56,8 +56,7 @@ return posinres;
 
 char checkifsamestring(char* one, char* two, char length, char lengthsecond){ //if not, return 0. Else return 1.
 length = getridofemptyspaces(one, length);
-  if(lengthsecond < length){return 0;}
-  char emptyinsecond = 0;
+   char emptyinsecond = 0;
 for(int i=0; i<length; i++){
   while( i + emptyinsecond < lengthsecond && *(two+i+emptyinsecond)==' ' ){emptyinsecond++;}
 if(*(one+i) == '\0' && *(two+i+emptyinsecond)=='\0' ){return 1;}
@@ -73,6 +72,7 @@ char iscity=0;
 for( int i=0; i< sizeof(cities) / sizeof(cities[0]); i++ ){
 
 char n = checkifsamestring( input, cities[i], length, namelength(cities[i], citynamelength) );
+
 if(1== n){return 1;}
 if(n==-1){printf("one of the strings doesnt end within the available length. Set the length of malloc in the int main() higher");}
 }
@@ -86,11 +86,20 @@ int main(int argc, char* argv[]){
 char maxlength = 40;
 char* userinput = malloc( maxlength *sizeof(char));
 char score=0;
-char activeletter= (rand()%26)+'a';
+char activeletter= (random()%26)+'a';
 
 while(1){
+
 printf("you have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
+
+/*if (fgets(userinput, maxlength, stdin) == NULL) {
+    printf("fgets was NULL\n");
+    break;
+}*/
+
 userinput = fgets(userinput, maxlength, stdin);
+
+//if(userinput==NULL){printf("fgets was null");}
 
 if( *(userinput) ==activeletter){ //if the letter is correct
 
