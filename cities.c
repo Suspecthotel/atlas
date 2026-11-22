@@ -60,7 +60,7 @@ char iscity=0;
 
 for( int i=0; i<sizeof(cities); i++ ){
 
-char n = checkifsamestring( input, cities[i], length, sizeof(cities[i]) );
+char n = checkifsamestring( input, cities[i], length, sizeof(cities) / sizeof(cities[0]) );
 if(1== n){return 1;}
 if(n==-1){printf("one of the strings doesnt end within the available length. Set the length of malloc in the int main() higher");}
 }
@@ -75,7 +75,7 @@ char maxlength = 40;
 char* userinput = malloc( maxlength *sizeof(char));
 char score=0;
 char* city;
-char activeletter= (rand()%26)+'A';
+char activeletter= (rand()%26)+'a';
 
 while(1){
 printf("you have managed to do %i cities. enter a city starting with the letter %c\n", score, activeletter);
