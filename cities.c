@@ -59,7 +59,7 @@ length = getridofemptyspaces(one, length);
   if(lengthsecond < length){return 0;}
   char emptyinsecond = 0;
 for(int i=0; i<length; i++){
-  while(*(two+i+emptyinsecond)==' ' && i + emptyinsecond < lengthsecond){emptyinsecond++;}
+  while( i + emptyinsecond < lengthsecond && *(two+i+emptyinsecond)==' ' ){emptyinsecond++;}
 if(*(one+i) == '\0' && *(two+i+emptyinsecond)=='\0' ){return 1;}
 else if( *(one+i) != *(two+i+emptyinsecond) ){return 0;}
 }
