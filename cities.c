@@ -55,11 +55,13 @@ return posinres;
 
 
 char checkifsamestring(char* one, char* two, char length, char lengthsecond){ //if not, return 0. Else return 1.
-length = getridofemptyspaces(one, length); lengthsecond = getridofemptyspaces(two, lengthsecond);
-if(lengthsecond != length){return 0;}
+length = getridofemptyspaces(one, length);
+  if(lengthsecond < length){return 0;}
+  char emptyinsecond = 0;
 for(int i=0; i<length; i++){
-if(*(one+i) == '\0' && *(two+i)=='\0' ){return 1;}
-else if( *(one+i) != *(two+i) ){return 0;}
+  while(*(two+i+emptyinsecond)==' '){emptyinsecond++;}
+if(*(one+i) == '\0' && *(two+i+emptyinsecond)=='\0' ){return 1;}
+else if( *(one+i) != *(two+i+emptyinsecond) ){return 0;}
 }
 return -1; //both strings dont end within length even though they should
 }
